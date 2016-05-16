@@ -39,7 +39,7 @@ reverse_list = list[::-2]
 ```python
 import os.path
 os.path.isfile(filename) # True if file exists
-os.path.isfile(dirname) # False if direcoty exists
+os.path.isfile(dirname) # False if directory exists
 ```
 
 `os.path.exists` used for both files and directories
