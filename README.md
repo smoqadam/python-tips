@@ -84,9 +84,9 @@ print 'True' if True else 'False'
 
 #### for else
 ```python
- my_string = ""
-    for i in my_string:
-        print i
-    else :
-        print 'String is empty'
+my_string = ""
+for i in my_string:
+    print i
+else :
+    print 'String is empty'
 ```
