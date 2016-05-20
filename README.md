@@ -10,7 +10,7 @@ List of python tips
 1. [Check file or directory exists](#check-file-or-directory-exists)
 1. [Call an external command](#call-an-external-command)
 1. [Ternary conditional operator](#ternary-conditional-operator)
-1. [for else](#for-else)
+1. [else in for loop](#else-in-for-loop)
 
 
 
@@ -86,11 +86,34 @@ print 'True' if True else 'False'
 ```
 
 
-#### for else
+#### `else` in `for` loop
+An `else` block is executed if the loop body is not terminated by a `break` statement : 
+
 ```python
-my_string = ""
-for i in my_string:
-    print i
+for i in range(5):
+    print('Here we go!')
+    if i == 2:
+        break
+else:
+    print('There we went.')
 else :
     print 'String is empty'
+# output : Here we go!
+#          Here we go!
+#          Here we go!
+```
+This `for` loop will get all the way to `else`:
+```python
+for i in range(5):
+    print('Here we go!')
+    if i == 10:
+        break
+else:
+    print('There we went.')
+# output : Here we go!
+#          Here we go!
+#          Here we go!
+#          Here we go!
+#          Here we go!
+#          There we went.
 ```
