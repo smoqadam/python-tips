@@ -45,6 +45,10 @@ reverse_list = my_list[::-2]
 a = [1, 2, 3, 4]
 ''' Considered as one of the weirdest syntax to copy elements.'''
 a_copy = a[:]
+
+''' Another way of copying a list.'''
+a_copy2 = list()
+a_copy2.extend(a) # output a_copy2 = [1, 2, 3, 4]
 ```
 
 
