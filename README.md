@@ -11,7 +11,7 @@ List of python tips
 1. [Call an external command](#call-an-external-command)
 1. [Ternary conditional operator](#ternary-conditional-operator)
 1. [else in for loop](#else-in-for-loop)
-
+1. [Print to file](#print-to-file)
 
 
 #### Reverse a string or list
@@ -116,4 +116,11 @@ else:
 #          Here we go!
 #          Here we go!
 #          There we went.
+```
+
+#### Print to file
+
+```python
+output = open('file.txt','w')
+print >>output, "Python!!"
 ```
