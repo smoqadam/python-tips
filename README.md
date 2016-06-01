@@ -2,6 +2,7 @@
 
 List of python tips
 
+1. [Use the Python 3 print function in Python 2](#use-the-python-3-print-function-in-python-2)
 1. [Reverse a string or list](#reverse-a-string-or-list)
 1. [Reverse by custom step](#reverse-by-custom-step)
 1. [List slice assignment](#list-slice-assignment)
@@ -9,10 +10,32 @@ List of python tips
 1. [Create a list out of string](#create-a-list-out-of-string)
 1. [Check file or directory exists](#check-file-or-directory-exists)
 1. [Call an external command](#call-an-external-command)
+1. [Capture output from an external command](#capture-output-from-an-external-command)
 1. [Ternary conditional operator](#ternary-conditional-operator)
 1. [else in for loop](#else-in-for-loop)
 1. [Print to file](#print-to-file)
+1. [Writing to file](#writing-to-file)
+1. [Reading from file](#reading-from-file)
+1. [Iterating over lines in a file](#iterating-over-lines-in-a-file)
 
+#### Use the Python 3 print function in Python 2
+```python
+# For Python 2, using the print() function from Python 3 helps future compatibility.
+# It also allows better syntax when printing to files, or changing the line ending.
+from __future__ import print_function
+
+print('Python', 'Tips', sep='-', end='')
+```
+
+```python
+import sys
+print('There was an error!', file=sys.stderr)
+```
+
+```python
+with open(filename, 'w') as f:
+    print('Python!', file=f)
+```
 
 #### Reverse a string or list
 ```python
@@ -74,15 +97,38 @@ os.path.exists(filename) # True if file exists
 os.path.exists(dirname) #True if directory exists
 ```
 
+`pathlib.Path` method (included in Python 3+, installable with pip for Python 2)
+```python
+from pathlib import Path
+Path(filename).exists()
+```
+
 #### Call an external command
 ```python
 from subprocess import call
 call(['ls,'-l'])
 ```
 
+#### Capture output from an external command
+```python
+from subprocess import check_output
+output = check_output(['ls', '/usr/bin'])
+```
+
+You can also capture `stderr` at the same time.
+```python
+from subprocess import check_output, STDOUT, CalledProcessError
+try:
+    output = check_output(['ls', '/nonexistent'], stderr=STDOUT)
+except CalledProcessError:
+    print('Error: {}'.format(output.decode()))
+else:
+    print('Success: {}'.format(output.decode()))
+```
+
 #### Ternary conditional operator
 ```python
-print 'True' if True else 'False'
+print('True' if True else 'False')
 ```
 
 
@@ -97,7 +143,7 @@ for i in range(5):
 else:
     print('There we went.')
 else :
-    print 'String is empty'
+    print('String is empty')
 # output : Here we go!
 #          Here we go!
 #          Here we go!
@@ -121,6 +167,29 @@ else:
 #### Print to file
 
 ```python
-output = open('file.txt','w')
-print >>output, "Python!!"
+# Using `with` and `open`, the file will be closed when the `with` block finishes.
+with open(filename, 'w') as outputfile:
+    print('Python!', file=outputfile)
+
+```
+
+#### Writing to file
+```python
+with open(filename, 'a') as inputfile:
+    inputfile.write('Python!\n')
+```
+
+#### Reading from file
+```python
+with open('file.txt', 'r') as inputfile:
+    data = inputfile.read()
+```
+
+#### Iterating over lines in a file
+When iterating over lines in a file, this method uses less memory because it reads one line at a time.
+```python
+with open(filename, 'r') as inputfile:
+    for line in inputfile:
+        # Lines have a '\n' at the end, like inputfile.readlines().
+        print(line, end='')
 ```
