@@ -43,25 +43,25 @@ my_list = ['a','b','c','d','e']
 reverse_list = my_list[::-1]
 
 my_string = "python"
-print my_string[::-1]
+print(my_string[::-1])
+# output : nohtyp
 ```
 
 #### Reverse by custom step
 ```python
 my_list = [1,2,3,4,5,6]
 reverse_list = my_list[::-2]
+print(reverse_list)
 # output : [6,4,2]
 ```
 
-
 #### List slice assignment
 ```python
-  my_list = ['a','b','c','d','e']
-  my_list[3:] = ['x','y','z']
-  print my_list
-  #output : ['a', 'b', 'c', 'x', 'y', 'z']
+my_list = ['a','b','c','d','e']
+my_list[3:] = ['x','y','z']
+print(my_list)
+# output : ['a', 'b', 'c', 'x', 'y', 'z']
 ```
-
 
 #### Copy a List
 ```python
@@ -74,13 +74,11 @@ a_copy2 = list()
 a_copy2.extend(a) # output a_copy2 = [1, 2, 3, 4]
 ```
 
-
 #### Create a list out of string
 ```python
 data = "abcd"
 data_list2 = list(data)  # OutPut: data_list = ['a', 'b', 'c', 'd'] 
 ```
-
 
 #### Check file or directory exists
 `os.path.isfile` used only for files
@@ -131,7 +129,6 @@ else:
 print('True' if True else 'False')
 ```
 
-
 #### `else` in `for` loop
 An `else` block is executed if the loop body is not terminated by a `break` statement : 
 
@@ -142,8 +139,6 @@ for i in range(5):
         break
 else:
     print('There we went.')
-else :
-    print('String is empty')
 # output : Here we go!
 #          Here we go!
 #          Here we go!
@@ -170,13 +165,12 @@ else:
 # Using `with` and `open`, the file will be closed when the `with` block finishes.
 with open(filename, 'w') as outputfile:
     print('Python!', file=outputfile)
-
 ```
 
 #### Writing to file
 ```python
-with open(filename, 'a') as inputfile:
-    inputfile.write('Python!\n')
+with open(filename, 'a') as outputfile:
+    outputfile.write('Python!\n')
 ```
 
 #### Reading from file
