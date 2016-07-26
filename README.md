@@ -139,8 +139,6 @@ for i in range(5):
         break
 else:
     print('There we went.')
-else :
-    print('String is empty')
 # output : Here we go!
 #          Here we go!
 #          Here we go!
