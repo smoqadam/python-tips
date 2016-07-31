@@ -8,6 +8,7 @@ List of python tips
 1. [List slice assignment](#list-slice-assignment)
 1. [Copy a list](#copy-a-list)
 1. [Create a list out of string](#create-a-list-out-of-string)
+1. [Print elements of a list by unpacking](#print-elements-of-a-list-by-unpacking)
 1. [Check file or directory exists](#check-file-or-directory-exists)
 1. [Call an external command](#call-an-external-command)
 1. [Capture output from an external command](#capture-output-from-an-external-command)
@@ -78,6 +79,12 @@ a_copy2.extend(a) # output a_copy2 = [1, 2, 3, 4]
 ```python
 data = "abcd"
 data_list2 = list(data)  # OutPut: data_list = ['a', 'b', 'c', 'd'] 
+```
+
+#### Print elements of a list by unpacking
+```python
+my_list = [1, 2, 3, 4]
+print(*my_list, sep='\t')   # Print elements of my_list separated by a tab
 ```
 
 #### Check file or directory exists
