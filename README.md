@@ -18,6 +18,7 @@ List of python tips
 1. [Writing to file](#writing-to-file)
 1. [Reading from file](#reading-from-file)
 1. [Iterating over lines in a file](#iterating-over-lines-in-a-file)
+1. [Accessing attributes which start with underscores](#accessing-attributes-which-start-with-underscores)
 
 #### Use the Python 3 print function in Python 2
 ```python
@@ -193,4 +194,26 @@ with open(filename, 'r') as inputfile:
     for line in inputfile:
         # Lines have a '\n' at the end, like inputfile.readlines().
         print(line, end='')
+```
+
+#### Accessing attributes which start with underscores
+“Private” instance variables that cannot be accessed except from inside an object don’t exist in Python.  Since there is a valid use-case for class-private members (namely to avoid name clashes of names with names defined by subclasses), there is limited support for such a mechanism, called name mangling. Any identifier of the form __spam (at least two leading underscores, at most one trailing underscore) is textually replaced with _classname__spam, where classname is the current class name with leading underscore(s) stripped.
+
+So to access attributes which start with underscores simply run obj_name._ClassName__attr_name .
+```python
+class MyClass:
+
+    def __init__(self):
+        self.__private_attr = None
+
+    def set_private_attr(self, attr_to_private):
+        self.__private_attr = attr_to_private
+
+
+attr = 7
+
+my_class = MyClass()
+my_class.set_private_attr(attr)
+
+print(my_class._MyClass__private_attr)
 ```
