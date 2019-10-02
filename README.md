@@ -217,3 +217,7 @@ my_class.set_private_attr(attr)
 
 print(my_class._MyClass__private_attr)
 ```
+
+
+## 📄 License
+python-tips is MIT licensed, as found in the [LICENSE](https://github.com/smoqadam/python-tips/blob/master/LICENSE) file.
