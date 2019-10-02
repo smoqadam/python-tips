@@ -14,6 +14,7 @@ List of python tips
 1. [Capture output from an external command](#capture-output-from-an-external-command)
 1. [Ternary conditional operator](#ternary-conditional-operator)
 1. [else in for loop](#else-in-for-loop)
+1. [Switch case](#switch-case)
 1. [Print to file](#print-to-file)
 1. [Writing to file](#writing-to-file)
 1. [Reading from file](#reading-from-file)
@@ -167,6 +168,27 @@ else:
 #          There we went.
 ```
 
+
+#### Switch Case
+```python
+switcher = {
+    1: "January",
+    2: "February",
+    3: "March",
+    4: "April",
+    5: "May",
+    6: "June",
+    7: "July",
+    8: "August",
+    9: "September",
+    10: "October",
+    11: "November",
+    12: "December"
+}
+for i in range(1, 13):
+    print(switcher.get(i, "Invalid month"))
+```
+
 #### Print to file
 
 ```python
@@ -217,7 +239,6 @@ my_class.set_private_attr(attr)
 
 print(my_class._MyClass__private_attr)
 ```
-
 
 ## 📄 License
 python-tips is MIT licensed, as found in the [LICENSE](https://github.com/smoqadam/python-tips/blob/master/LICENSE) file.
